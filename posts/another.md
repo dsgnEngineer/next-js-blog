@@ -1,6 +1,6 @@
 ---
-title: 'First Try on Tailwind CSS!'
-date: 'June 24 2021'
+title: 'My first Frontend Project'
+date: 'June 25 2021'
 ---
 
 ## Heading 2

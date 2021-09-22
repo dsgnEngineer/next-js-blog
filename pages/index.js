@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Header from "../components/Header";
-import fs from 'fs';
-import path from 'path';
+import Post from "../components/Post";
+import matter from "gray-matter";
+import fs from "fs";
+import path from "path";
 
-export default function Home({posts}) {
- 
+export default function Home({ posts }) {
+  // console.log(posts)
   return (
     <div className="h-screen bg-gray-900">
       <Head>
@@ -13,29 +15,41 @@ export default function Home({posts}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <div className="posts">
+        {posts.map((post, index) => (
+          // eslint-disable-next-line react/jsx-key
+          <Post post={post} />
+          
+        ))}
+      </div>
     </div>
   );
 }
 
-export async function getStaticProps(){
+export async function getStaticProps() {
   //Get files from post dir
-  const files = fs.readdirSync(path.join('posts'))
-  
+  const files = fs.readdirSync(path.join("posts"));
+
   //Get slug and frontmatter from posts
-  const posts = files.map(filename => {
+  const posts = files.map((filename) => {
+    //create slug
+    const slug = filename.replace(".md", "");
+    //create frontmatter
+    const markdownWithMeta = fs.readFileSync(
+      path.join("posts", filename),
+      "utf-8"
+    );
 
-    const slug = filename.replace('.md', '')
+    const { data: frontmatter } = matter(markdownWithMeta);
     return {
-      slug
-    }
-    
-  })
-
-  console.log(posts)
+      slug,
+      frontmatter,
+    };
+  });
 
   return {
     props: {
-      posts: 'The post',
+      posts,
     },
-  }
+  };
 }
