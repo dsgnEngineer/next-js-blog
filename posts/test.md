@@ -7,4 +7,4 @@ date: 'June 24 2021'
 * Item 1
 * Item 2
 
-This is a sample test
+I love Tailwind CSS!

@@ -6,7 +6,7 @@ export default function Post({post}) {
             <div className="post-date font-inter text-yellow-400">{post.frontmatter.date}</div>
             <h3 className="post-title font-inter text-indigo-400 text-5xl pb-4">{post.frontmatter.title}</h3>
             <Link href={`/blog/${post.slug}`}>
-                <a className="bg-yellow-400 p-2">Read More >></a>
+                <a className="font-inter bg-yellow-400 p-2">Read More {'>>'}</a>
             </Link>
         </div>
     )
