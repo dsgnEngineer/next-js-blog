@@ -10,20 +10,20 @@ export default function PostPage({
   content,
 }) {
   return (
-    <div className="h-screen p-8 bg-gray-900">
+    <div className="p-8">
       <Link href="/">
         <a className="font-inter bg-yellow-400 p-2">{"<< "}Go Back</a>
       </Link>
       <div className="post-page">
-        <h1 className="post-title font-inter text-indigo-400 text-5xl pt-8 pb-4">
+        <h1 className="post-title text-gray-700 text-5xl pt-8 pb-8">
           {title}
         </h1>
-        <div className="post-date font-inter text-yellow-400">{date}</div>
+        <div className="post-date">{date}</div>
         <div className="post-body">
           <div 
-          dangerouslySetInnerHTML={{ __html: marked(content) }}
-          className="font-inter text-white"
-          ></div>
+          className="prose"
+          dangerouslySetInnerHTML={{ __html: marked
+          (content) }}></div>
         </div>
       </div>
     </div>

@@ -6,16 +6,16 @@ import path from "path";
 import {sortByDate} from '../utils';
 
 export default function Home({ posts }) {
-  // console.log(posts)
+ 
   return (
-    <div className="bg-gray-900">
+    <div className="center-screen">
       <Head>
         <title>Devsignerd</title>
-        <meta name="description" content="Tori Zhao Frontend Developer " />
+        <meta name="description" content="Just A Frontend Developer " />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="h-screen posts">
+      <div className="posts">
         {posts.map((post, index) => (
           // eslint-disable-next-line react/jsx-key
           <Post post={post} />
